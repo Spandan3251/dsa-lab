@@ -1,0 +1,18 @@
+#include<stdio.h>
+void TOH(int n,char source,char disk,char temp)
+{
+    if(n==1){
+        printf("move disk 1 from source%c to rod %c\n",source,disk);
+        return;
+    }
+    TOH(n-1,source,temp,disk);
+    printf("Move disk %d from source %c to disk %c\n",n,source,disk);
+    TOH(n-1,temp,disk,source);
+}
+int main(){
+    int n;
+    printf("\n enter the no of disks");
+    scanf("%d",&n);
+    TOH(n,'A','C','B');
+    return 0;
+}
